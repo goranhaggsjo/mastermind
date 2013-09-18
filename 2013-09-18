@@ -1,0 +1,15 @@
+idag så ska vi fortsätta med spelet.
+vi löste problemet med checkSolution, och tog bort hårdkodade siffror 
+och gjorde konstanter till dem, vi låter 1:or vara kvar i lopar.
+i början försökte vi byta element i strängen med seed[i] = '*'
+men det är inte tillåtet ty strängar i javascript är imutable.
+vi löste detta med att byta ut koden till seed.replace(seed[i],'*');
+vi behöver inte bry oss om ordningen det blir rätt för vi går igenom en loop
+från vänster till höger.
+vi ska använda join för att arbeta från arrays till strängar.
+
+vi implementerade också i checkInput() att du får felmedelande om 
+du ska skriva mera eller mindre peggar.
+
+vi hittade att det fanns stöd för färg inom consolen.
+koden jag hittade jag console.log('%c Oh my heavens! ', 'background: #222; color: #bada55');.

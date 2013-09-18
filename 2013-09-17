@@ -1,0 +1,26 @@
+jag arbetar med göran, och vi ska börja idag med vårat spel.
+spelet vi har valt är master mind.
+en viktig del i detta project är att göra bra kod, och väl dokumenterad.
+
+layout for the game:
+
+the players decides in the beggining how many games they will play, this number must be even.
+one codemaker other codebreaker.
+
+codemaker: choose 4 pegs dublication are allowed,
+code pegs 7 colors: red,green,orange,Purple,white,blue,black; forms the code you break 
+key pegs white,black: white right piece in right place; black - right piece in wrong place.
+codebreaker: max 15 tries.
+
+roadmap: first version text, second graphical in webpage, third lowscore.
+
+R G B R : S V S V; test version of cui.
+
+checkSolution(str);  //kollar vilka som är rätt, returnerar en sträng av S, V
+om vi får V V V V så är vi klara.
+ex: du klarade på x antal försök.
+NodeJs - textversionen kör inom detta.
+
+checkInput(); //kollar att definerade färger finns
+
+RGBO : RSOO
