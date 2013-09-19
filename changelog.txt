@@ -1,1 +1,16 @@
-here we will log new changes
+la till tillfälligt checkInput(solution, seed) och checkSolution(solution, seed);
+vi får hitta en bättre lösning sen, men det är bara för att kunna pasera koden till alla funktioner.
+kanske det vore bättre om den kanske är konstant, eller om en funktion har den som man kan kalla.
+
+implementerade function input(message)
+och för tillfälligt använder den prompt, för jag vet inte vilken annan vi ska använda.
+
+jag ändrade output till outputCode(code)
+och la till en vanlig output som var menad för text. inte färgade koder.
+
+implementerade parseInput() som gör input till stora bokstäver och tar bort alla whitespace.
+input använder parseInput()
+byggde vidare på play()
+
+
+
