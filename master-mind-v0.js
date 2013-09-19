@@ -57,12 +57,12 @@ function outputCode(code) {
     console.log(outCode, colorization(code[0]), colorization(code[1]), colorization(code[2]), colorization(code[3]));
 }
 
-function checkSolution(solution, seed) {
+function checkSolution(solution) {
     "use strict";
     var i, result = "",
-        // seed = "VVBB",
         pos,
-        NO_POS = -1;
+        NO_POS = -1,
+        seed = "VVBB";
     ///
     for (i = 0; i < solution.length; i += 1) { //check for white peg
         if (solution[i] === seed[i]) {
@@ -83,7 +83,7 @@ function checkSolution(solution, seed) {
     return result;
 }
 
-function checkInput(solution, seed) {
+function checkInput(solution) {
     "use strict";
     var colors = "RGBSVLO", //colors that are allowed to use
         i,
@@ -103,20 +103,18 @@ function checkInput(solution, seed) {
             return "#illegal color, use " + colors;
         }
     }
-    return checkSolution(solution, seed); //checkInput acts as a gatekeeper for checkSolution.
+    return checkSolution(solution); //checkInput acts as a gatekeeper for checkSolution.
 }
 
 function play() {
     "use strict";
-    var seed = "VVBB",
-        solution = "RGBV",
-        // i = 0,
-        userInput = '',
-        result = '';
+    // i = 0,
+    var userInput = '',
+        result = ''; //the ret from checkInput och checkSolution
     //
     do {
         userInput = input("enter a code");
-        result = checkInput(userInput, seed);
+        result = checkInput(userInput);
         if (result[0] === '#') {
             output(result);
         } else {
@@ -124,7 +122,6 @@ function play() {
             outputCode(result);
         }
     } while (userInput !== 'Q');
-    checkSolution(solution, seed);
 }
 //
 //

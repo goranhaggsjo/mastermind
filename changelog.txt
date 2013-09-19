@@ -1,7 +1,3 @@
-la till tillfälligt checkInput(solution, seed) och checkSolution(solution, seed);
-vi får hitta en bättre lösning sen, men det är bara för att kunna pasera koden till alla funktioner.
-kanske det vore bättre om den kanske är global, eller om en funktion har den som man kan kalla.
-
 implementerade function input(message)
 och för tillfälligt använder den prompt, för jag vet inte vilken annan vi ska använda.
 
