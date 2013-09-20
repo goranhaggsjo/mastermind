@@ -105,6 +105,45 @@ function checkInput(solution) {
     }
     return checkSolution(solution); //checkInput acts as a gatekeeper for checkSolution.
 }
+//generate random code
+//try to implement 
+
+function genCode() {
+    "use strict";
+    var i,
+        code = '',
+        random,
+        CODE_LENGTH = 4;
+    for (i = 0; i < CODE_LENGTH; i += 1) {
+        random = Math.floor((Math.random() * 7)); //generate nr from 0-6
+        switch (random) {
+        case 0:
+            code += 'R';
+            break;
+        case 1:
+            code += 'G';
+            break;
+        case 2:
+            code += 'B';
+            break;
+        case 3:
+            code += 'S';
+            break;
+        case 4:
+            code += 'V';
+            break;
+        case 5:
+            code += 'L';
+            break;
+        case 6:
+            code += 'O';
+            break;
+        default:
+            code += '';
+        }
+    }
+    return code;
+}
 
 function play() {
     "use strict";

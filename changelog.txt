@@ -8,5 +8,9 @@ implementerade parseInput() som gör input till stora bokstäver och tar bort al
 input använder parseInput()
 byggde vidare på play()
 
+2013-09-20
+lade till genCode() som genererar random koder som ska knäckas.
+
+
 
 
