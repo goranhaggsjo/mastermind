@@ -1,5 +1,8 @@
 /*jslint browser:true */
 /*global alert: false, confirm: false, console: false, Debug: false, opera: false, prompt: false, WSH: false */
+//global variables
+var code = '';
+//
 
 function parseInput(input) { //prepares the input for usage
     "use strict";
@@ -56,26 +59,28 @@ function outputCode(code) {
     //
     console.log(outCode, colorization(code[0]), colorization(code[1]), colorization(code[2]), colorization(code[3]));
 }
+//bugg rsgs g visade svart istället för grått.
 
 function checkSolution(solution) {
     "use strict";
     var i, result = "",
         pos,
         NO_POS = -1,
-        seed = "VVBB";
+        seed = code;
     ///
     for (i = 0; i < solution.length; i += 1) { //check for white peg
         if (solution[i] === seed[i]) {
             result += 'V';
+            seed = seed.replace(seed[i], '*'); //mark the used pegs
         } else {
             pos = seed.indexOf(solution[i]); //position of matched color
             if (pos !== NO_POS) { //check for black peg
                 result += 'S';
+                seed = seed.replace(seed[pos], '*'); //mark the used pegs
             } else {
                 result += '_'; //color not in use
             }
         }
-        seed.replace(seed[i], '*'); //mark the used pegs
     }
     if (result === 'VVVV') {
         return "#You win you are an WINNER! (quit : q)";
@@ -148,6 +153,7 @@ function genCode() {
 function play() {
     "use strict";
     // i = 0,
+    code = 'RSGS'; //genCode();
     var userInput = '',
         result = ''; //the ret from checkInput och checkSolution
     //
