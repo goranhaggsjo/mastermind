@@ -1,8 +1,18 @@
-/*jslint browser:true */
 /*global alert: false, confirm: false, console: false, Debug: false, opera: false, prompt: false, WSH: false */
 //global variables
 var code = '';
 //
+var player = {};
+
+function genPlayer(name, score, played) {
+    "use strict";
+    var that = {
+        "name": name,
+        "score": score,
+        "played": played
+    };
+    return that;
+}
 
 function parseInput(input) { //prepares the input for usage
     "use strict";
@@ -59,7 +69,6 @@ function outputCode(code) {
     //
     console.log(outCode, colorization(code[0]), colorization(code[1]), colorization(code[2]), colorization(code[3]));
 }
-//bugg rsgs g visade svart istället för grått.
 
 function checkSolution(solution) {
     "use strict";
@@ -83,7 +92,7 @@ function checkSolution(solution) {
         }
     }
     if (result === 'VVVV') {
-        return "#You win you are an WINNER! (quit : q)";
+        return "#You win you are an WINNER!";
     }
     return result;
 }
@@ -97,10 +106,10 @@ function checkInput(solution) {
         CODE_LENGTH = 4;
     //
     if (solution.length < CODE_LENGTH) {
-        return "#use more pegs, allowed 4";
+        return "#use more pegs, currently allowed 4 pegs";
     }
     if (solution.length > CODE_LENGTH) {
-        return "#use less pegs, allowed 4";
+        return "#use less pegs, currently allowed 4 pegs";
     }
     for (i = 0; i < solution.length; i += 1) {
         pos = colors.indexOf(solution[i]);
@@ -119,6 +128,7 @@ function genCode() {
         code = '',
         random,
         CODE_LENGTH = 4;
+    //
     for (i = 0; i < CODE_LENGTH; i += 1) {
         random = Math.floor((Math.random() * 7)); //generate nr from 0-6
         switch (random) {
@@ -150,23 +160,66 @@ function genCode() {
     return code;
 }
 
+function outputStatus() {
+    "use strict";
+    output("name: " + player.name);
+    output("Score: " + player.score);
+    output("nr games played: " + player.played);
+}
+
 function play() {
     "use strict";
     // i = 0,
-    code = 'RSGS'; //genCode();
+    code = genCode();
     var userInput = '',
-        result = ''; //the ret from checkInput och checkSolution
+        result = '', //the ret from checkInput och checkSolution
+        counter = 0,
+        MAX_TRIES = 15,
+        NO_POS = -1;
+    //
+    code = genCode();
+    //
+    player.played += 1; //
     //
     do {
-        userInput = input("enter a code");
+        userInput = input("Use colors R,G,B,S,V,L,O \nenter a code:    " + String(MAX_TRIES - counter) + ": tries left");
         result = checkInput(userInput);
         if (result[0] === '#') {
             output(result);
+            //
+            if (result.indexOf("WINNER") !== NO_POS) {
+                //
+                player.score += (MAX_TRIES - counter);
+                outputStatus();
+                //
+                output("would you like to play again= (y/n)");
+                userInput = input("would you like to play again? (y/n)");
+                switch (userInput) {
+                case 'Y':
+                case 'YES':
+                    return true;
+                case 'N':
+                case 'NO':
+                    return false;
+                default:
+                    return false;
+                }
+            }
         } else {
             outputCode(userInput);
             outputCode(result);
         }
-    } while (userInput !== 'Q');
+        counter += 1;
+    } while (userInput !== 'Q' && counter < MAX_TRIES);
+}
+
+function main() {
+    "use strict";
+    output("--- Welcome to Master mind, where you will master your mind ---");
+    player = genPlayer(input("what's your name: "), 0, 0);
+    do {
+        output("let the game begin");
+    } while (play());
 }
 //
 //

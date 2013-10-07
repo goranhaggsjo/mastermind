@@ -1,0 +1,85 @@
+
+.board{
+    background-color: red;
+    width:120px;
+    height:400px;
+}
+
+
+.row{
+     background-color: yellow;
+     display: inline-block;
+     height: 20px;
+     width: 120px;
+     margin: 1px;
+
+}
+.mCode{
+    
+    background-color: #0f0;
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    
+    border-radius: 5px;
+}
+.column1{
+    position: relative;
+    background-color: #0f0;
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    border-radius: 5px;
+    
+
+}
+.column2{
+    background-color: #0f0;
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    border-radius: 5px;
+}
+.column3{
+    background-color: #0f0;
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    border-radius: 5px;
+}
+.column4{
+    background-color: #0f0;
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    border-radius: 5px;
+}
+.column5{
+    background-color: blue;
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    border-radius: 5px;
+}
+.column6{
+    background-color: blue;
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    border-radius: 5px;
+}
+.column7{
+    background-color: blue;
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    border-radius: 5px;
+}
+.column8{
+    background-color: blue;
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    border-radius: 5px;
+}
+
