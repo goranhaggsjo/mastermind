@@ -1,0 +1,132 @@
+/*
+ * CSS for mastermind
+ */
+
+h1{
+    text-align: center;
+}
+
+p{
+    margin: 0 auto 0 auto;
+    text-align: center;
+    border: black solid 1px;
+    width:400px;
+}
+
+#mwrapper{
+    margin: 0 auto 0 auto;
+    width: 240px;
+}
+
+.Mastercode{
+    padding-left: 5px;
+    paddong-top: 5px;
+}
+
+.board{
+    background-color: orange;
+    height:520px;
+}
+
+.row{
+     background-color: yellow;
+     display: inline-block;
+     height: 25px;
+     margin: 1px;
+     padding-left: 5px;
+     padding-right:5px;
+     padding-top: 3px;
+}
+
+.mCode{
+    background-color: dimGray;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+    border: black solid 1px;
+}
+
+.columns{
+    background-color: #AAA;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+    border: black solid 1px;
+}
+
+.selcolx{
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+}
+
+.pcolumns{
+    background-color: dimGray;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    border-radius: 1px;
+    border: black solid 1px;
+}
+
+.gap{
+    display: inline-block;
+    height: 20px;
+    width: 20px; 
+}
+
+#dragrow{
+    padding-left: 30px;
+}
+
+.dragball{
+    display:inline-block;
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+    /*background-color: dimGray;*/
+    margin-top: 10px;
+    position:relative;
+}
+
+.gray{
+    background-color: #AAA;
+}
+.red{
+    background-color: red;
+    border: black solid 1px;
+}
+.green{
+    background-color: green;
+    border: black solid 1px;
+}
+.orange{
+    background-color: #FF6600;
+    border: black solid 1px;
+}
+.blue{
+    background-color: blue;
+    border: black solid 1px;
+}
+.black{
+    background-color: black;
+    border: black solid 1px;
+}
+.white{
+    background-color: #FFF;
+    border: black solid 1px;
+}
+.lila{
+    background-color: #8A2BE2; /* BlueViolet; looked bad */
+    border: black solid 1px;
+}
+
+
+
+
+
+
+
