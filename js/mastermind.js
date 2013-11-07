@@ -105,6 +105,8 @@ function checkRow() {
     // Get solution string
     var panel = document.getElementById("row15").getElementsByClassName("droptarget");
 
+    // We change the color class with a one letter key here
+    // Lila => A, Red => B and so forth
     for (i = 0; i < panel.length; i = i + 1) {
         for (j = 0; j < myCol.length; j = j + 1) {
             if (panel[i].classList.contains(myCol[j]) === true) {
@@ -113,9 +115,12 @@ function checkRow() {
             }
         }
     }
-    console.log("solution =" + solution);
-    ///
-    for (i = 0; i < solution.length; i += 1) { //check for white peg
+
+    // Check to see if key is a match.
+    // Give a white for color is in right place (Swedish is vit)
+    //
+    for (i = 0; i < solution.length; i += 1) {
+        //check for white peg
         if (solution[i] === seed[i]) {
             result += 'V';
             seed = seed.replace(seed[i], '*'); //mark the used pegs
@@ -154,13 +159,19 @@ function genCode() {
 }
 
 
+//
 // User selects color 
+//
 
 function selectColor(event) {
     "use strict";
     selectedColor = event.toElement.classList[1];
     console.log("Color selected" + selectedColor);
 }
+
+//
+// User selects pins to lowest field
+//
 
 function setColor(event) {
     "use strict";
@@ -174,8 +185,10 @@ function setColor(event) {
         }
     }
 
-    // after clensed the old color it's safe to set a new one
+    // after clensed the old color it's safe to add a new one
     event.target.classList.add(selectedColor);
+
+    // If this is the 4-th color do a check
     numColors = numColors + 1; // New color on dot
     if (numColors === 4) {
         checkRow();
@@ -184,19 +197,26 @@ function setColor(event) {
     }
 }
 
+//
 // wait for window to be ready, and set up for a game.
+//
 window.addEventListener("DOMContentLoaded", function () {
     "use strict";
+
     var dragItem = document.querySelectorAll(".dragball"),
         dropTarget = document.querySelectorAll(".droptarget"),
         i = 0;
 
     code = genCode(); // Generate a code (Yes, it's global for now)
 
+    // Set listeners on the lowest field for drop/click
     for (i = 0; i < dropTarget.length; i = i + 1) {
         dropTarget[i].addEventListener("click", setColor);
     }
 
+    // 
+    // Set listener for color selection
+    // (maybe this might be drawable in future)
     for (i = 0; i < dragItem.length; i = i + 1) {
         dragItem[i].addEventListener("click", selectColor);
     }
