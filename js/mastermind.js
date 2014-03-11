@@ -134,14 +134,16 @@ function checkRow() {
             }
         }
     }
-    display_pattern(result);
-    // If the pattern is right prepare to clean
-    if (result === 'VVVV') {
-        // Present winner on a place, and display the master code
-        alert("You win, you are a WINNER!");
-        scroll(false); // true means scroll, false clean
-        code = genCode(); // Generate a new code
-    }
+}
+
+display_pattern(result);
+// If the pattern is right prepare to clean
+if (result === 'VVVV') {
+    // Present winner on a place, and display the master code
+    alert("You win, you are a WINNER!");
+    scroll(false); // true means scroll, false clean
+    code = genCode(); // Generate a new code
+}
 }
 
 function genCode() {
